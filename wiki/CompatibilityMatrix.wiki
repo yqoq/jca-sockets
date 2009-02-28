@@ -6,5 +6,5 @@ In theory any modern J2EE 1.4 and later server will work. Currently only the fol
 
 
 = Details =
-|| Server || Version || Comments ||
-|| JBoss || 4.2.2 || Seems to work but little testing so far. ||
+|| *Server* || *Version* || *Comments* ||
+|| JBoss || 4.2.2 || Seems to work but little testing so far ||
