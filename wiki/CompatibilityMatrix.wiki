@@ -1,0 +1,10 @@
+#summary Tested Configurations.
+
+= Introduction =
+
+In theory any modern J2EE 1.4 and later server will work. Currently only the following have been tested. 
+
+
+= Details =
+|| Server || Version || Comments ||
+|| JBoss || 4.2.2 || Seems to work but little testing so far. ||
