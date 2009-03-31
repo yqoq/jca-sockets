@@ -11,6 +11,6 @@ In theory any modern J2EE 1.4 and later server will work. Currently only the fol
 || JBoss || 4.2 || OK ||
 || JBoss || 5.0 || OK ||
 || Glassfish || 2.1 || Not OK - stalls after a few seconds (pool working?) ||
-|| Glassfish || 3.0 || Not tested ||
+|| Glassfish || 3.0 || Not OK - does not deploy||
 || Weblogic || X || Not tested ||
 || Websphere || X || Not tested ||
