@@ -3,15 +3,19 @@
 == TODO == 
 
 == Notes for Windows Users ==
-If you are working on windows and opening and closing many connections, certain windows limits may cause problems.
 A socket is identified by a pair of addresses (IP + port). For example if I am connecting from 192.168.1.1 to 10.10.10.1 listening on port 9000, then may Socket will be 
-{192.168.1.1:SOME_PORT, 10.10.10.1:9000}. The SOME_PORT is allocated dynamically by the client. 
+{192.168.1.1:SOME_PORT, 10.10.10.1:9000}. The SOME_PORT is allocated dynamically by the client. These are sometimes called ephemeral ports.
 
 When a client socket is closed it goes into a TIME_WAIT state. The local port before being able to be reused (a socket is identified by a pair of ports: the fixed listener port and the dynamically allocated client port).
 
-The length of the time wait in seconds may be *addded* in the registry DWORD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpTimedWaitDelay (default is 240 seconds, minimum is 30 seconds)[http://technet.microsoft.com/en-us/library/cc938217.aspx TcpTimedWaitDelay]
+If you are working on windows and opening and closing many connections, certain windows limits may cause problems.
 
+=== Reducing TIME_WAIT ===
+The length of the time wait in seconds may be *addded* in the registry DWORD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpTimedWaitDelay (default is 240 seconds, minimum is 30 seconds).
+
+[http://technet.microsoft.com/en-us/library/cc938217.aspx Microsoft Document on setting TcpTimedWaitDelay]
+
+=== Increasing available ports ===
 Additionally you may run out of local sockets and you can increase these again by *adding* a DWORD to the registry HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\MaxUserPort (default is 5000, maximum is 65536).
 
-[http://technet.microsoft.com/en-us/library/cc938196.aspx MaxUserPort] 
-
+[http://technet.microsoft.com/en-us/library/cc938196.aspx Microsoft Document on settingMaxUserPort] 
