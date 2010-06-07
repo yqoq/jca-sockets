@@ -18,4 +18,4 @@ The length of the time wait in seconds may be *addded* in the registry DWORD HKL
 === Increasing available ports ===
 Additionally you may run out of local sockets and you can increase these again by *adding* a DWORD to the registry HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\MaxUserPort (default is 5000, maximum is 65536).
 
-[http://technet.microsoft.com/en-us/library/cc938196.aspx Microsoft Document on settingMaxUserPort] 
+[http://technet.microsoft.com/en-us/library/cc938196.aspx Microsoft Document on setting MaxUserPort] 
