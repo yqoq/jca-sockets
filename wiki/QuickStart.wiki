@@ -3,8 +3,8 @@
 == TODO == 
 
 == Notes for Windows Users ==
-A socket is identified by a pair of addresses (IP + port). For example if I am connecting from 192.168.1.1 to 10.10.10.1 listening on port 9000, then may Socket will be 
-{192.168.1.1:SOME_PORT, 10.10.10.1:9000}. The SOME_PORT is allocated dynamically by the client. These are sometimes called ephemeral ports.
+A socket is identified by a pair of addresses (IP + port). For example if I am connecting from 192.168.1.1 to 10.10.10.1 listening on port 9000, then my Socket will be 
+{192.168.1.1:SOME_PORT, 10.10.10.1:9000}. The SOME_PORT is allocated dynamically by the client (these are sometimes called ephemeral ports).
 
 When a client socket is closed it goes into a TIME_WAIT state. The local port before being able to be reused (a socket is identified by a pair of ports: the fixed listener port and the dynamically allocated client port).
 
