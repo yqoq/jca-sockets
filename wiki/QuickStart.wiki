@@ -11,7 +11,7 @@ When a client socket is closed it goes into a TIME_WAIT state. The local port be
 If you are working on windows and opening and closing many connections, certain windows limits may cause problems.
 
 === Reducing TIME_WAIT ===
-The length of the TIME_WAIT in seconds set by *adding* a DWORD to the registry HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpTimedWaitDelay (default is 240 seconds, minimum is 30 seconds).
+The length of the TIME_WAIT in seconds set by *adding* a DWORD to the registry {HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpTimedWaitDelay} (default is 240 seconds, minimum is 30 seconds).
 
 See [http://technet.microsoft.com/en-us/library/cc938217.aspx Microsoft Document on setting TcpTimedWaitDelay] for details.
 
