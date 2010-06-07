@@ -16,6 +16,6 @@ The length of the TIME_WAIT in seconds set by *adding* a DWORD to the registry {
 See [http://technet.microsoft.com/en-us/library/cc938217.aspx Microsoft Document on setting TcpTimedWaitDelay] for details.
 
 === Increasing available ports ===
-Additionally you may run out of local sockets and you can increase these again by *adding* a DWORD to the registry HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\MaxUserPort (default is 5000, maximum is 65536).
+Additionally you may run out of local sockets and you can increase these again by *adding* a DWORD to the registry {{{HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\MaxUserPort}}} (default is 5000, maximum is 65536).
 
 See [http://technet.microsoft.com/en-us/library/cc938196.aspx Microsoft Document on setting MaxUserPort] for details.
