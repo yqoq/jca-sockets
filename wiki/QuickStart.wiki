@@ -6,8 +6,10 @@ These are some basic instructions to get a knowledgeable person started.
 
 == unzip and deploy ==
 After unzipping, 
-* Add the jar file {{{socket-api-X.X.X.jar}}} to the server classpath. 
+* Add the jar file {{{socket-api-X.X.X.jar}}} to the server classpath.
+
 * deploy the {{{socket-rar-X.X.X.rar}}} file to the application server.
+
 * deploy the example MDB {{{sockets-ejb-X-X-X.jar}}} (for Glassfish and JBoss this should work. You may need to change the descriptors for other servers). If some need change please email the changes and I will include them.
 
 
