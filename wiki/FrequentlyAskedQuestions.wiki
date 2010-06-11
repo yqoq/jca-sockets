@@ -10,9 +10,11 @@ No. I have considered adding a "LifeCycleListener" interface which would be call
 No.
 
 === What protocol should I use? ===
-You are implementing this adapter because you have legacy clients that need to connect to an application server and these clients cannot be changed. If you could change them then I would recommend not using this adapter and using a servlet with an XML request/Response or a webservice(JAX-RS or JAX-WS). So the protocol is probably fixed.
+You are implementing this adapter because you have legacy clients that need to connect to an application server and these clients cannot be changed. If you could change them then I would recommend *not* using this adapter and using an HTTP servlet with an XML request/Response body or a webservice(JAX-RS or JAX-WS) instead. 
 
 === How do I implement a protocol ===
+Currently you need to do this in your onMessage() method. Readers/Writers can be accessed from the SocketMessage.  I suppose the onMessage() method is misnamed it should be something like onConnectionUntilClose() or somenting like that. In the onMessage method you are responsible for dealing with the conection.
+
 Text based protocols are the most common (care needs to be taken with binary protocols if you reconstruct things like Integers as the byte order is machine dependent google: big-endian). For text-based protocols typically you would use the Reader/Writer in the SocketMessage class (configure the character encoding in the XML descriptor). Binary protocols should use the Input/Output streams but don't combine streams with Readers and Writers due to buffering issues!
 
 With any protocol there must be some way of breaking up the data into meaningful chunks. In particular to know when a "record" is terminated or when a conversation is ended. 
