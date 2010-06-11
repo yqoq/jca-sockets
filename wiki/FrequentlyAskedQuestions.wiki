@@ -1,6 +1,6 @@
 #summary Frequently Asked Questions
 === Disclaimer ===
-I am not a sockets expert. Most of this stuff is from experience and reading stuff from more knowledgable people. So if you see something that is wrong or misleading please let me know.
+I am not a sockets expert. Most of this stuff is from experience and reading things from more knowledgable people. So if you see something that is wrong or misleading please let me know.
 
 === Does the adapter support setting socket properties like keepalive, linger etc ===
 No. I have considered adding a {{{LifeCycleListener}}} interface which would be called at various points in the lifecycle of the {{{EndPoint}}}, for example before binding the socket. Keepalive is probably the most useful, linger did not seem to do much in my tests (it seems it has patchy implementation and does not really do what you'd expect).
@@ -31,3 +31,6 @@ Like anything listening on a port the resource adapter could be attacked. There 
 
 === What happens in case of network failure ===
 It depends. The server side may not be notified and it will hang indefinitely. If there is some indication of failure by the underlying network stack then an exception wil be throw (see FAQ on exceptions). Keep alives are supposed to handle this but currently there is no mechanisim in the resource adapter to enable them.
+
+=== What logger is used ===
+I switched from commons-logging to java.util.logging to remove the dependency. Without configuration java.util.logging goes to stderr. In JBoss stderr just goes to the standard logger. Not sure what other servers will do with this.
