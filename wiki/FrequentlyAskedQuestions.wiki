@@ -42,7 +42,7 @@ I kept running out of {{{EndPoints}}} in JBoss for high volume tests that made a
 Yes, that's why it was developed! It has been used here in Belgium at over 500 Postal Distribution centres for connecting multiplexed barcode scanners with JBoss application servers. It has been pretty reliable with the only issue reported being the limit on the number of connections.
 
 === Where can I learn more about sockets? ===
-Google it but here are some useful: 
+Google it but here are some useful links: 
 
 Really basic stuff: http://java.sun.com/docs/books/tutorial/networking/sockets/index.html
 
