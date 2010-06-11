@@ -1,4 +1,4 @@
-#summary Frequently Asked Questions
+
 === Disclaimer ===
 I am not a sockets expert. Most of this stuff is from experience and reading things from more knowledgable people. So if you see something that is wrong or misleading please let me know.
 
