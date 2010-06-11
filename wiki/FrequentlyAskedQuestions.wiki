@@ -3,7 +3,7 @@
 I am not a socket expert. Most of this stuff is from experience and reading stuff from more knowledgable people. So if you see something that is wrong or misleading please let me know.
 
 === Does the adapter support setting socket properties like keepalive, linger etc ===
-No. I have considered adding a "LifeCycleListener" interface which would be called at various points in the lifecycle of the EndPoint, for example before binding the socket. Keepalive is probably the 
+No. I have considered adding a "LifeCycleListener" interface which would be called at various points in the lifecycle of the EndPoint, for example before binding the socket. Keepalive is probably the most useful, linger did not seem to do much in my tests (it seems it has patchy implementation and does not really do what you'd expect).
 
 
 === Does the adapter support outgoing connections ===
