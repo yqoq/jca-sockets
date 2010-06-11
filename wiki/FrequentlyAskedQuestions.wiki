@@ -1,17 +1,31 @@
 #summary Frequently Asked Questions
 
-== Does the adapter support out going connections ==
+== Does the adapter support outgoing connections ==
 No.
 
 == What protocol should I use? ==
-Typically you are implementing this adapter because you have legacy clients that need to connect and these clients cannot be changed. If you could change them then I would recommend not using this adapter and using a servlet with and XML request/Response) or a JAX-RS or JAX-WS webservice. So the protocol is probably fixed.
+You are implementing this adapter because you have legacy clients that need to connect to an application server and these clients cannot be changed. If you could change them then I would recommend not using this adapter and using a servlet with an XML request/Response or a webservice(JAX-RS or JAX-WS). So the protocol is probably fixed.
 
+== How do I implement a protocol ==
+Text based protocols are the most common (care needs to be taken with binary protocols if you reconstruct things like Integers as the byte order is machine dependent google: big-endian). For text-based protocols typically you would use the Reader/Writer in the SocketMessage class (configure the character encoding in the XML descriptor). Binary protocols should use the Input/Output streams but don't combine streams with Readers and Writers due to buffering issues!
+
+With any protocol there must be some way of breaking up the data into meaningful chunks. In particular to know when a "record" is terminated or when a conversation is ended. 
+
+
+Protocols need some way of breaking up the byte stream into some sort of meaningful text. 
+They also need some way of indicating that they have finished so that everyone can shutdown gracefully. 
+
+==What happens if I throw an exception from the MDB? ==
+Exceptions are caught in the EndPoint, the exception is logged, the socket is closed and the endpoint returned to the pool.
 
 ==What happens if the client is ill behaved==
-A cleint 
+When complete a client should tell the server that the conversation is over (for clients that just send a single request/response per connection this is not necessary). The server can then gracefully close the socket and release the endpoint to be reused.
+Clients may not do this and in the best case the server side will get an indication from the client side that the socket is closed and (TCP/IP may do this), the server side socket will then throw an exception and the 
 
-How can I protect the server against malicious attacks
+wait for some time before the socekt is closed (this occurs at the TCP/IP level). 
 
-What happens in case of network failure
+== How can I protect the server against malicious attacks ==
+Like anything listening on a port the resource adapter could be attacked. There is nothing to stop this. Protection should be implemented in the infrastructure (the typical usecase is to install this on an internal network which should be relativly safe from bad guys). 
 
-SocketsOnWindows
+== What happens in case of network failure ==
+It depends. The server side may not be notified and it will hang there indefinitely. 
