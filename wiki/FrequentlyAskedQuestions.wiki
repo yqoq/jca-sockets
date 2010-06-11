@@ -51,3 +51,4 @@ I don't know python but this is pretty easy to follow: [http://www.amk.ca/python
 
 Some info on linger: http://www.developerweb.net/forum/archive/index.php/t-2982.html
 
+SocketsOnWindows also has some useful info (not just for windows).
