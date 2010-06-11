@@ -1,4 +1,10 @@
 #summary Frequently Asked Questions
+=== Disclaimer ===
+I am not a socket expert. Most of this stuff is from experience and reading stuff from more knowledgable people. So if you see something that is wrong or misleading please let me know.
+
+=== Does the adapter support setting socket properties like keepalive, linger etc ===
+No. I have considered adding a "LifeCycleListener" interface which would be called at various points in the lifecycle of the EndPoint, for example before binding the socket. Keepalive is probably the 
+
 
 === Does the adapter support outgoing connections ===
 No.
@@ -27,4 +33,4 @@ Clients may not do this and in the best case the server side will get an indicat
 Like anything listening on a port the resource adapter could be attacked. There is nothing to stop this. Protection should be implemented in the infrastructure (the typical usecase is to install this on an internal network which should be relativly safe from bad guys). 
 
 === What happens in case of network failure ===
-It depends. The server side may not be notified and it will hang there indefinitely. If there is some indication of failure then an exception wil be throw (see FAQ on exceptions). Keep alives are supposed to handle this but currently there is no mechanisim to initiate them (I have considered adding a "LifeCycleListener" interface which would be called at various points in the lifecycle of the EndPoint, for example before binding the socket). 
+It depends. The server side may not be notified and it will hang there indefinitely. If there is some indication of failure then an exception wil be throw (see FAQ on exceptions). Keep alives are supposed to handle this but currently there is no mechanisim to initiate them.
