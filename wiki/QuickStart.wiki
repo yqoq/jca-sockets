@@ -24,8 +24,8 @@ The reply for server should be:
 == Run the performance testing client ==
 A more sophisticated client is also provided, for this you need some external jars (commons-cli) in the classpath which are not packaged in this distribution.
 
-This is the command line required:
-java -cp sockets-client\sockets-client-1.2.jar:commons-cli.jar com.googlecode.jcasockets.perf.Client -h
+This is the command line required for help:
+{{{java -cp sockets-client\sockets-client-1.2.jar:commons-cli.jar com.googlecode.jcasockets.perf.Client -h }}}
 
 == Notes for Windows Users ==
 A socket is identified by a pair of addresses (IP + port). For example if I am connecting from 192.168.1.1 to 10.10.10.1 listening on port 9000, then my Socket will be 
