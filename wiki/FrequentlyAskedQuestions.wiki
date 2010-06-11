@@ -36,7 +36,7 @@ It depends. The server side may not be notified and it will hang indefinitely. I
 I switched from commons-logging to java.util.logging to remove the dependency. Without configuration java.util.logging goes to stderr. In JBoss stderr just goes to the standard logger. Not sure what other servers will do with this.
 
 === Why is an {{{EndPoint}}} pool used ===
-I kept running out of EndPoints in JBoss for high volume tests that made a single request/response per connection. It may be a configuration in JBoss and I certainly think an Application server should handle this correctly. If anyone can shed light on this I would be happy to remove the pool. I could also disable it by setting maxConnection to 0 for example, but this is not implemented.
+I kept running out of {{{EndPoints}}} in JBoss for high volume tests that made a single request/response per connection. It may be a configuration in JBoss and I certainly think an Application server should handle this correctly. If anyone can shed light on this I would be happy to remove the pool. I could also disable it by setting maxConnection to 0 for example, but this is not implemented.
 
 === Is this used in production ===
 Yes, that's why it was developed! It has been used here in Belgium at over 500 Postal Distribution centres for connecting multiplexed barcode scanners with JBoss application servers. It has been pretty reliable with the only issue reported being the limit on the number of connections.
