@@ -19,13 +19,12 @@ They also need some way of indicating that they have finished so that everyone c
 Exceptions are caught in the EndPoint, the exception is logged, the socket is closed and the endpoint returned to the pool.
 
 ===What happens if the client is ill behaved===
-When complete a client should tell the server that the conversation is over (for clients that just send a single request/response per connection this is not necessary). The server can then gracefully close the socket and release the endpoint to be reused.
-Clients may not do this and in the best case the server side will get an indication from the client side that the socket is closed and (TCP/IP may do this), the server side socket will then throw an exception and the 
+When finished, a client should tell the server that the conversation is over (for clients that just send a single request/response per connection this is not necessary). The server can then gracefully close the socket and release the endpoint to be reused.
+Clients may not do this and in the best case the server side will get an indication from the client side that the socket is closed and (TCP/IP may do this), the server side socket will then throw an exception will behave as describe in the FAQ on exceptions.
 
-wait for some time before the socekt is closed (this occurs at the TCP/IP level). 
 
 === How can I protect the server against malicious attacks ===
 Like anything listening on a port the resource adapter could be attacked. There is nothing to stop this. Protection should be implemented in the infrastructure (the typical usecase is to install this on an internal network which should be relativly safe from bad guys). 
 
 === What happens in case of network failure ===
-It depends. The server side may not be notified and it will hang there indefinitely. If there is some indication of failure. Keep alives are supposed to handle this but currently there is no mechanisim to initiate them (I have considered adding a "LifeCycleListener" interface which would be called at various points in the lifecycle of the EndPoint, for example before binding the socket).
+It depends. The server side may not be notified and it will hang there indefinitely. If there is some indication of failure then an exception wil be throw (see FAQ on exceptions). Keep alives are supposed to handle this but currently there is no mechanisim to initiate them (I have considered adding a "LifeCycleListener" interface which would be called at various points in the lifecycle of the EndPoint, for example before binding the socket). 
