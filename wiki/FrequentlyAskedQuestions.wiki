@@ -33,19 +33,20 @@ Like anything listening on a port the resource adapter could be attacked. There 
 === What happens in case of network failure ===
 It depends. The server side may not be notified and it will hang indefinitely. If there is some indication of failure by the underlying network stack then an exception wil be throw (see FAQ on exceptions). Keep alives are supposed to handle this but currently there is no mechanisim in the resource adapter to enable them.
 
-=== What logger is used ===
+=== What logger is used? ===
 I switched from commons-logging to java.util.logging to remove the dependency. Without configuration java.util.logging goes to stderr. In JBoss stderr just goes to the standard logger. Not sure what other servers will do with this.
 
-=== Why is an {{{EndPoint}}} pool used ===
+=== Why is an {{{EndPoint}}} pool used? ===
 I kept running out of {{{EndPoints}}} in JBoss for high volume tests that made a single request/response per connection. It may be a configuration in JBoss and I certainly think an Application server should handle this correctly. If anyone can shed light on this I would be happy to remove the pool. I could also disable it by setting maxConnection to 0 for example, but this is not implemented.
 
-=== Is this used in production ===
+=== Is this used in production? ===
 Yes, that's why it was developed! It has been used here in Belgium at over 500 Postal Distribution centres for connecting multiplexed barcode scanners with JBoss application servers. It has been pretty reliable with the only issue reported being the limit on the number of connections.
 
-=== Where can I learn more about sockets ===
-Google it. Some useful links: 
+=== Where can I learn more about sockets? ===
+Google it but here are some useful: 
 
 Really basic stuff: http://java.sun.com/docs/books/tutorial/networking/sockets/index.html
+
 I don't know python but this is pretty easy to follow: [http://www.amk.ca/python/howto/sockets/]
 
 Some info on linger: http://www.developerweb.net/forum/archive/index.php/t-2982.html
