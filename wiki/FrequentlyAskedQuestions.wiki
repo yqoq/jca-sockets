@@ -1,5 +1,17 @@
 #summary Frequently Asked Questions
 
-= What does it do =
+== Does the adapter support out going connections ==
+No.
+
+== What protocol should I use? ==
+Typically you are implementing this adapter because you have legacy clients that need to connect and these clients cannot be changed. If you could change them then I would recommend not using this adapter and using a servlet with and XML request/Response) or a JAX-RS or JAX-WS webservice. So the protocol is probably fixed.
+
+
+==What happens if the client is ill behaved==
+A cleint 
+
+How can I protect the server against malicious attacks
+
+What happens in case of network failure
 
 SocketsOnWindows
