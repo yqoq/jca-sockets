@@ -44,9 +44,9 @@ Yes, that's why it was developed! It has been used here in Belgium at over 500 P
 
 === Where can I learn more about sockets ===
 Google it. Some useful links: 
+
+Really basic stuff: http://java.sun.com/docs/books/tutorial/networking/sockets/index.html
 I don't know python but this is pretty easy to follow: [http://www.amk.ca/python/howto/sockets/]
 
-Some info on linger http://www.developerweb.net/forum/archive/index.php/t-2982.html
-
-
+Some info on linger: http://www.developerweb.net/forum/archive/index.php/t-2982.html
 
