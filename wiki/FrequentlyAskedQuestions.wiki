@@ -2,6 +2,7 @@
 === Disclaimer ===
 I am not a sockets expert. Most of this stuff is from experience and reading things from more knowledgable people. So if you see something that is wrong or misleading please let me know.
 
+
 === Does the adapter support setting socket properties like keepalive, linger etc ===
 No. I have considered adding a {{{LifeCycleListener}}} interface which would be called at various points in the lifecycle of the {{{EndPoint}}}, for example before binding the socket. Keepalive is probably the most useful, linger did not seem to do much in my tests (it seems it has patchy implementation and does not really do what you'd expect).
 
@@ -40,3 +41,12 @@ I kept running out of {{{EndPoints}}} in JBoss for high volume tests that made a
 
 === Is this used in production ===
 Yes, that's why it was developed! It has been used here in Belgium at over 500 Postal Distribution centres for connecting multiplexed barcode scanners with JBoss application servers. It has been pretty reliable with the only issue reported being the limit on the number of connections.
+
+=== Where can I learn more about sockets ===
+Google it. Some useful links: 
+I don't know python but this is pretty easy to follow: [http://www.amk.ca/python/howto/sockets/]
+
+Some info on linger http://www.developerweb.net/forum/archive/index.php/t-2982.html
+
+
+
