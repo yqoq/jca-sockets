@@ -1,6 +1,28 @@
 #summary Quick Start Guide
 
-== TODO == 
+These are some basic instructions to get a knowledgeable person started.
+
+== unzip and deploy ==
+After unzipping, 
+* deploy the socket-rar-X.X.X.rar file to the application server.
+* deploy the example MDB sockets-ejb-X-X-X.jar (for Glassfish and JBoss this should work, *Make sure the socket-api-X.X.X.jar is available in the server classpath. You may need to change the descriptors for other servers). If some need change please email the changes and I will include them.
+
+The sample MDB just replies with what was sent. 
+
+== run the simple client ==
+Asimple client (is provided which will send a request from the command line and get and echo a response from the server).
+You can run the client with:
+
+{{{java -cp sockets-client\sockets-client-X.X.X.jar com.googlecode.jcasockets.sample.SimpleClient "Hello World" }}}
+
+The reply for server should be:
+"Hello World"
+
+== run the performance testing client ==
+A more sophisticated client is also provided, for this you need some external jars (commons-cli) in the classpath which are not packaged in this distribution.
+
+This is the command line required:
+java -cp sockets-client\sockets-client-1.2.jar com.googlecode.jcasockets.perf.Client -h
 
 == Notes for Windows Users ==
 A socket is identified by a pair of addresses (IP + port). For example if I am connecting from 192.168.1.1 to 10.10.10.1 listening on port 9000, then my Socket will be 
